@@ -36,7 +36,7 @@ let players =
        },
    ]
 
-  router.post("/players",function(req,res){ 
+   router.post("/players",function(req,res){ 
     let newPlayer=req.body
     let newPlayerName=req.body.name
     let player = players.find(p => p.name == newPlayerName)
@@ -48,6 +48,7 @@ let players =
         
     }
 
+  
   })
 
 module.exports = router;
