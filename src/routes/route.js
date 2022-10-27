@@ -6,45 +6,86 @@ router.get('/test-me', function (req, res) {
 });
 
 
-let persons= [
-    {
-    name: "PK",
-    age: 10,
-    votingStatus: false  
- },
- {
-    name: "SK",
-    age: 20,
-    votingStatus: false
- },
- {
-    name: "AA",
-    age: 70,
-    votingStatus: false
- },
- {
-    name: "SC",
-    age: 5,
-    votingStatus: false
- },
- {
-    name: "HO",
-    age: 40,
-    votingStatus: false
- }
- ]
+router.get("/sol1",function(req,res){
+   let arr=[1,2,3,5,6,7]
+   let n= (arr.length)+1
+   let consecutiveSum= n*(n+1)/2
 
-  router.post("/persons",function(req,res){
-    const votingAge=req.query.votingAge
-    const updatedPersons=[]
-    for(let i=0;i<persons.length;i++){
-        if(persons[i].age>=votingAge){
-            persons[i].votingStatus=true
-            updatedPersons.push(persons[i])
-        }
-    }
-    res.send(updatedPersons)
-  })
+   let total = 0;
+   for (var i in arr) {
+       total =total+ arr[i];
+   }
+   let missingNumber= consecutiveSum - total
+   res.send({msg :missingNumber})
+
+
+
+
+})
+
+router.get("/sol2",function(req,res){
+let arr= [33, 34, 35, 37, 38]
+let len= arr.length
+
+let total = 0;
+for (var i in arr) {
+    total += arr[i];
+}
+
+let firstDigit= arr[0]
+let lastDigit= arr.pop()
+let consecutiveSum= (len + 1) * (firstDigit+ lastDigit ) / 2
+let missingNumber= consecutiveSum - total
+
+res.send(  { data: missingNumber  }  );
+});
+
+
+
+
+
+
+// *****************************************
+
+// let persons= [
+//     {
+//     name: "PK",
+//     age: 10,
+//     votingStatus: false  
+//  },
+//  {
+//     name: "SK",
+//     age: 20,
+//     votingStatus: false
+//  },
+//  {
+//     name: "AA",
+//     age: 70,
+//     votingStatus: false
+//  },
+//  {
+//     name: "SC",
+//     age: 5,
+//     votingStatus: false
+//  },
+//  {
+//     name: "HO",
+//     age: 40,
+//     votingStatus: false
+//  }
+//  ]
+
+//   router.post("/persons",function(req,res){
+//     const votingAge=req.query.votingAge
+//     const updatedPersons=[]
+//     for(let i=0;i<persons.length;i++){
+//         if(persons[i].age>=votingAge){
+//             persons[i].votingStatus=true
+//             updatedPersons.push(persons[i])
+//         }
+//     }
+//     res.send(updatedPersons)
+//   })
 
  
 
