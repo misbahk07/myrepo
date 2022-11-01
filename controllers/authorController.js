@@ -1,11 +1,11 @@
-const AuthorModel=require("../models/authorModel")
 
-let createAuthor=async function(req,res){
-    let body=req.body
-    let saveAuthor=await AuthorModel.create(body)
-    res.send(saveAuthor)
+
+let AnotherbasicCode=function(req,res){
+    console.log( "hey Misbah, congrats you have reached the Handler")
+    res.send({ msg: "This is coming from AuthorController (handler)"})
 }
 
 
 
-module.exports.createAuthor=createAuthor
+
+module.exports.AnotherbasicCode=AnotherbasicCode
