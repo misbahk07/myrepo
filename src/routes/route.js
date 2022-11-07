@@ -69,7 +69,7 @@ router.get('/movies/:indexNumber',function (req,res){
    let myParams1=req.params.indexNumber
    console.log("The path params in the request are :",myParams1)
    
-   res.send("The movie at the first index is "+ moviesName[indexNumber] )
+   res.send("The movie at the first index is "+ moviesName[myParams1] )
 
 })
 
