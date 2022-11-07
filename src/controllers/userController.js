@@ -40,14 +40,8 @@ const getUserData = async function (req, res) {
 };
 
 const updateUser = async function (req, res) {
-
-  let userId = req.params.userId;
-  let user = await userModel.findById(userId);
-  if (!user) {
-    return res.send("No such user exists");
-  }
-
   let userData = req.body;
+  let userId = req.params.userId;
   let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData, { new: true });
   res.send({ status: true, data: updatedUser });
 };
@@ -55,10 +49,10 @@ const updateUser = async function (req, res) {
 let deleteUser = async function (req, res) {
 
   let userId = req.params.userId;
-  let user = await userModel.findById(userId);
-  if (!user) {
-    return res.send("No such user exists");
-  }
+  // let user = await userModel.findById(userId);
+  // if (!user) {
+  //   return res.send("No such user exists");
+  // }
 
   let flag = req.body
   let deleteThatUser = await userModel.findByIdAndUpdate({ _id: userId }, flag, { new: true })
