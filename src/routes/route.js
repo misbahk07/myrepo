@@ -11,8 +11,8 @@ router.post("/users", userController.createUser  )
 router.post("/login", userController.loginUser)
 
 // Protected APIs
-router.get("/users/:userId",myMW.authenticate, userController.getUserData)
-router.put("/users/:userId",myMW.authenticate, userController.updateUser)
-router.delete("/users/:userId",myMW.authenticate,userController.deleteUser)  
+router.get("/users/:userId",myMW.authenticate,myMW.authorise ,userController.getUserData)
+router.put("/users/:userId",myMW.authenticate,myMW.authorise, userController.updateUser)
+router.delete("/users/:userId",myMW.authenticate,myMW.authorise, userController.deleteUser)  
 
 module.exports = router;
